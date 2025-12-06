@@ -1,0 +1,32 @@
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  
+  mermaid.initialize({ 
+    startOnLoad: false, // Lo iniciamos manualmente después de procesar el HTML
+    theme: 'default' 
+  });
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    // Buscar todos los bloques de código que marcaste como "mermaid"
+    const elements = document.querySelectorAll('pre code.language-mermaid');
+    
+    // Transformarlos de texto simple a DIVs que Mermaid entienda
+    for (const element of elements) {
+      const graphDefinition = element.textContent;
+      const newDiv = document.createElement('div');
+      newDiv.className = 'mermaid';
+      newDiv.textContent = graphDefinition;
+      
+      // Reemplazar el bloque <pre> original por el nuevo <div>
+      element.parentElement.replaceWith(newDiv);
+    }
+    
+    // Ahora sí, ¡a dibujar!
+    await mermaid.run();
+  });
+</script>
+{% if page.project_url %}
+  <a href="{{ page.project_url }}" target="_blank" class="ml-3 align-self-center" style="margin-top: 1.3rem; font-size: 0.75rem; white-space: nowrap;">
+    Code Repository
+  </a>
+{% endif %}
