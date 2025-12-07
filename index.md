@@ -18,4 +18,4 @@ I build systems that not only capture data but understand it. With proficiency i
 * **Weather Station:** An IoT system leveraging ESP32 and Python to capture environmental data (temperature, humidity, pressure). Data flows through **AWS IoT Core** to **DynamoDB** for storage, then processed via **Lambda** functions to generate weather predictions for end users.
 
 
-[View my Resume](/resume) | [Contact Me](/contact)
+[View my Resume]({ site.baseurl }/resume) | [Contact Me](https://www.linkedin.com/in/jesus-daniel-gonzalez-rocha-93010b28b/?skipRedirect=true)
