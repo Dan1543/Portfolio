@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AWS Architecture"
+title: "AWS Structure"
 parent: "Weather Station"
 nav_order: 1
 project_url: https://github.com/Dan1543/Weather-Monitor
@@ -16,6 +16,8 @@ While the current prediction model runs directly on AWS Lambda using a pretraine
 * **Amazon DynamoDB:** A NoSQL database used for high speed storage of time series weather data.
 * **AWS Lambda:** Serverless compute service that processes database streams, runs the prediction model, and handles notifications.
 * **ntfy.sh:** An external HTTP based pub sub notification service.
+
+---
 
 ## System Architecture
 The system follows an **Event Driven Architecture**. Data flows asynchronously from the edge device (ESP32) to the user notification, triggered by data arrival rather than polling.
@@ -49,11 +51,15 @@ The ESP32 payload **must** include a `device_id`. This is used as the **Partitio
 ## 3. AWS Lambda (Processing & Prediction)
 The Lambda function is the "brain" of the cloud logic. It is not invoked via HTTP; instead, it is configured with a **DynamoDB Stream Trigger**. This means the function executes automatically **only** when a new record is successfully committed to the database.
 
+---
+
 ### Executing the Model
 The Lambda environment includes a custom `model.py` file containing the pretrained logic. Once triggered:
 1.  The function parses the `NewImage` (the latest data) from the DynamoDB Stream.
 2.  It inputs the data into the model.
 3.  A **Softmax** function calculates the probability of weather conditions for the next hour.
+
+---
 
 ### Sending Notifications (ntfy)
 To keep the project lightweight and free, I integrated **ntfy.sh** for push notifications. The user subscribes to a topic generated using the microcontroller's MAC address (e.g., `WeatherStation_A1B2C3`), ensuring privacy and preventing crosstalk between different devices.

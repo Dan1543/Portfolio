@@ -15,7 +15,7 @@ I build systems that simultaneously captures data and understands it. With profi
 * **Data Science:** Python, Data analysis, automation, data mining.
 
 ## Featured Projects
-* **[Weather Station]({{ site.baseurl }}/projects/weather-station):** An IoT system leveraging ESP32 and Python to capture environmental data (temperature, humidity, pressure). Data flows through **AWS IoT Core** to **DynamoDB** for storage, then processed via **Lambda** functions to generate weather predictions for end users.
+* **[Weather Station:]({{ site.baseurl }}/projects/weather_station)** An IoT system leveraging ESP32 and Python to capture environmental data (temperature, humidity, pressure). Data flows through **AWS IoT Core** to **DynamoDB** for storage, then processed via **Lambda** functions to generate weather predictions for end users.
 
 
-[View my Resume]({ site.baseurl }/resume) | [Contact Me](https://www.linkedin.com/in/jesus-daniel-gonzalez-rocha-93010b28b/?skipRedirect=true)
+[View my Resume]({{ site.baseurl }}/resume) | [Contact Me](https://www.linkedin.com/in/jesus-daniel-gonzalez-rocha-93010b28b/?skipRedirect=true)

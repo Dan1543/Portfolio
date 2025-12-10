@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Schematic"
+title: "Hardware Design"
 parent: "Weather Station"
 nav_order: 2
 project_url: https://github.com/Dan1543/Weather-Monitor
